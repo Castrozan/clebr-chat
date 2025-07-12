@@ -4,12 +4,17 @@
     "description": "Frontend Chat Client with E2E Testing",
     "type": "module",
     "main": "chat.html",
+    "engines": {
+        "node": ">=22.0.0"
+    },
     "scripts": {
-        "test": "export PLAYWRIGHT_BROWSERS_PATH=/home/zanoni/.local/share/playwright-browsers && export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true && npx playwright test --project chromium --timeout 10000",
-        "test:performance": "node tests/run-performance-test.js",
-        "test:security": "node tests/run-security-test.js",
-        "test:ux": "node tests/run-ux-test.js",
-        "test:all": "node tests/run-all-tests.js",
+        "playwright:base": "export PLAYWRIGHT_BROWSERS_PATH=/home/zanoni/.local/share/playwright-browsers && export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true && npx playwright",
+        "test:e2e": "npm run playwright:base test --project chromium --timeout 10000",
+        "test:e2e:all": "npm run playwright:base test --project chromium --timeout 180000 --reporter line",
+        "test:e2e:performance": "npm run playwright:base test performance.spec.js --project chromium --timeout 180000 --reporter line",
+        "test:e2e:security": "npm run playwright:base test security.spec.js --project chromium --timeout 180000 --reporter line",
+        "test:e2e:ux": "npm run playwright:base test ux.spec.js --project chromium --timeout 180000 --reporter line",
+        "test": "npm run test:e2e:all",
         "start": "live-server --host=127.0.0.1 --port=5500 --open=chat.html",
         "dev": "live-server --host=127.0.0.1 --port=5500 --open=chat.html"
     },
