@@ -10,7 +10,7 @@ export interface McpServer {
 export interface McpTool {
   name: string;
   description?: string;
-  parameters?: Record<string, any>;
+  parameters?: Record<string, unknown>;
 }
 
 // MCP Session data

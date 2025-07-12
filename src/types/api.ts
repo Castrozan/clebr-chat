@@ -22,7 +22,7 @@ export interface McpInitializeResponse {
   tools?: Array<{
     name: string;
     description?: string;
-    parameters?: Record<string, any>;
+    parameters?: Record<string, unknown>;
   }>;
 }
 
@@ -66,12 +66,12 @@ export interface ApiClient {
   get: <T>(url: string, config?: Partial<ApiConfig>) => Promise<ApiResponse<T>>;
   post: <T>(
     url: string,
-    data?: any,
+    data?: unknown,
     config?: Partial<ApiConfig>
   ) => Promise<ApiResponse<T>>;
   put: <T>(
     url: string,
-    data?: any,
+    data?: unknown,
     config?: Partial<ApiConfig>
   ) => Promise<ApiResponse<T>>;
   delete: <T>(

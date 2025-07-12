@@ -23,11 +23,11 @@ const mockMcpStore = {
 };
 
 // Mock modules before importing the store
-jest.mock("../../lib/services/api", () => ({
+jest.mock("../../src/lib/services/api", () => ({
   ApiService: mockApiService,
 }));
 
-jest.mock("../../lib/stores/mcpStore", () => ({
+jest.mock("../../src/lib/stores/mcpStore", () => ({
   useMcpStore: mockMcpStore,
 }));
 
@@ -36,8 +36,8 @@ jest.unmock("zustand");
 
 // Import the actual store implementation
 const { useChatStore } = jest.requireActual(
-  "../../lib/stores/chatStore"
-) as typeof import("../../lib/stores/chatStore");
+  "../../src/lib/stores/chatStore"
+) as typeof import("../../src/lib/stores/chatStore");
 
 describe("ChatStore", () => {
   beforeEach(() => {

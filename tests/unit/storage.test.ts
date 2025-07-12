@@ -13,8 +13,8 @@ import {
 
 // Import the actual StorageService implementation
 const { StorageService } = jest.requireActual(
-  "../../lib/utils/storage"
-) as typeof import("../../lib/utils/storage");
+  "../../src/lib/utils/storage"
+) as typeof import("../../src/lib/utils/storage");
 
 // Create a simple localStorage mock
 const createLocalStorageMock = () => {

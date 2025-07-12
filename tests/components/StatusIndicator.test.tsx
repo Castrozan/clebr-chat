@@ -1,6 +1,6 @@
 import React from "react";
-import { render, screen } from "../../tests/utils/test-utils";
-import { StatusIndicator } from "../../components/mcp/StatusIndicator";
+import { render, screen } from "../utils/test-utils";
+import { StatusIndicator } from "../../src/components/mcp/StatusIndicator";
 import { describe, it, expect } from "@jest/globals";
 
 describe("StatusIndicator", () => {

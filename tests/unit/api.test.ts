@@ -4,8 +4,8 @@
 
 // Import the actual ApiService implementation
 const { ApiService } = jest.requireActual(
-  "../../lib/services/api"
-) as typeof import("../../lib/services/api");
+  "../../src/lib/services/api"
+) as typeof import("../../src/lib/services/api");
 import {
   describe,
   it,

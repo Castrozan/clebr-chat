@@ -3,9 +3,9 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { StatusIndicator } from "../../../components/mcp/StatusIndicator";
-import { ServerList } from "../../../components/mcp/ServerList";
-import { useMcpStore } from "../../../lib/stores/mcpStore";
+import { StatusIndicator } from "../../components/mcp/StatusIndicator";
+import { ServerList } from "../../components/mcp/ServerList";
+import { useMcpStore } from "../../lib/stores/mcpStore";
 import { Settings, RefreshCw, AlertCircle } from "lucide-react";
 
 export default function ConfigPage() {

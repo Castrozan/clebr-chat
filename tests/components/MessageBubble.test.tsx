@@ -1,7 +1,7 @@
 import React from "react";
-import { render, screen } from "../../tests/utils/test-utils";
-import { MessageBubble } from "../../components/chat/MessageBubble";
-import type { Message } from "../../types/chat";
+import { render, screen } from "../utils/test-utils";
+import { MessageBubble } from "../../src/components/chat/MessageBubble";
+import type { Message } from "../../src/types/chat";
 import { describe, it, expect } from "@jest/globals";
 
 describe("MessageBubble", () => {

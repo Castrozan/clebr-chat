@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "../utils/test-utils";
-import { ChatInput } from "../../components/chat/ChatInput";
+import { ChatInput } from "../../src/components/chat/ChatInput";
 import { describe, it, expect, beforeEach } from "@jest/globals";
 import userEvent from "@testing-library/user-event";
 import { resetAllMocks, updateChatStore } from "../utils/test-utils";

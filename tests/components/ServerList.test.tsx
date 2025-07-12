@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, setupTest, cleanupTest } from "../utils/test-utils";
-import { ServerList } from "../../components/mcp/ServerList";
+import { ServerList } from "../../src/components/mcp/ServerList";
 import {
   describe,
   it,

@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, setupTest, cleanupTest } from "../utils/test-utils";
-import { ChatInterface } from "../../components/chat/ChatInterface";
+import { ChatInterface } from "../../src/components/chat/ChatInterface";
 import {
   describe,
   it,
@@ -9,12 +9,12 @@ import {
   beforeEach,
   afterEach,
 } from "@jest/globals";
-import { useChatStore } from "../../lib/stores/chatStore";
-import { useMcpStore } from "../../lib/stores/mcpStore";
+import { useChatStore } from "../../src/lib/stores/chatStore";
+import { useMcpStore } from "../../src/lib/stores/mcpStore";
 
 // Mock the stores
-jest.mock("../../lib/stores/chatStore");
-jest.mock("../../lib/stores/mcpStore");
+jest.mock("../../src/lib/stores/chatStore");
+jest.mock("../../src/lib/stores/mcpStore");
 
 const mockUseChatStore = useChatStore as jest.MockedFunction<
   typeof useChatStore

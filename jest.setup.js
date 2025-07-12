@@ -25,7 +25,7 @@ jest.mock('next/navigation', () => ({
 }))
 
 // Mock API service
-jest.mock('./lib/services/api', () => ({
+jest.mock('./src/lib/services/api', () => ({
     ApiService: {
         initializeMcp: jest.fn(),
         sendChatMessage: jest.fn(),
@@ -33,7 +33,7 @@ jest.mock('./lib/services/api', () => ({
 }))
 
 // Mock storage service
-jest.mock('./lib/utils/storage', () => ({
+jest.mock('./src/lib/utils/storage', () => ({
     StorageService: {
         getMcpServers: jest.fn(() => []),
         saveMcpServers: jest.fn(),

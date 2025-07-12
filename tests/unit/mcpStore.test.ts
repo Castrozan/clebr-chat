@@ -24,18 +24,18 @@ const mockStorageService = {
   saveMcpServers: jest.fn(),
 };
 
-jest.mock("../../lib/services/api", () => ({
+jest.mock("../../src/lib/services/api", () => ({
   ApiService: mockApiService,
 }));
 
-jest.mock("../../lib/utils/storage", () => ({
+jest.mock("../../src/lib/utils/storage", () => ({
   StorageService: mockStorageService,
 }));
 
 // Import the actual store implementation
 const { useMcpStore } = jest.requireActual(
-  "../../lib/stores/mcpStore"
-) as typeof import("../../lib/stores/mcpStore");
+  "../../src/lib/stores/mcpStore"
+) as typeof import("../../src/lib/stores/mcpStore");
 
 describe("McpStore", () => {
   beforeEach(() => {

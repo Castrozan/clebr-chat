@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, setupTest, cleanupTest } from "../utils/test-utils";
-import { Header } from "../../components/layout/Header";
+import { Header } from "../../src/components/layout/Header";
 import {
   describe,
   it,
