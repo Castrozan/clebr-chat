@@ -88,56 +88,123 @@ clebr-chat/
 
 ## 🔄 Migration Strategy
 
-### **Phase 1: Foundation (Week 1)**
-- Initialize Next.js with TypeScript
-- Set up Tailwind CSS and shadcn/ui
-- Create basic project structure
-- Configure ESLint/Prettier
+### **Phase 1: Foundation (Week 1)** ✅ COMPLETED
+- ✅ Initialize Next.js with TypeScript
+- ✅ Set up Tailwind CSS and shadcn/ui
+- ✅ Create basic project structure
+- ✅ Configure ESLint/Prettier
+- ✅ Fix hydration issues
+- ✅ Preserve existing E2E tests
 
-### **Phase 2: Core Features (Week 2)**
-- **Chat Interface**: Main chat page with message handling
-- **MCP Integration**: Background tool integration (preserve all current functionality)
-- **State Management**: Zustand stores for chat and MCP
-- **API Integration**: Maintain existing backend communication
+### **Phase 2: Core Features (Week 2)** ✅ COMPLETED
+- ✅ **Chat Interface**: Main chat page with message handling
+- [ ] **MCP Integration**: Background tool integration (preserve all current functionality)
+- ✅ **State Management**: Zustand stores for chat and MCP
+- ✅ **API Integration**: Maintain existing backend communication
 
 ### **Phase 3: Configuration (Week 3)**
-- **Configuration Page**: Dedicated `/config` page for MCP server management
-- **Server Management**: Add/remove servers, connection status
-- **Settings**: User preferences and configuration options
-- **Status Monitoring**: Real-time connection status across the app
+- [ ] **Configuration Page**: Dedicated `/config` page for MCP server management
+- [ ] **Server Management**: Add/remove servers, connection status
+- [ ] **Settings**: User preferences and configuration options
+- [ ] **Status Monitoring**: Real-time connection status across the app
 
 ### **Phase 4: Enhancement (Week 4)**
-- **Error Handling**: Comprehensive error states and fallback modes
-- **Testing**: Adapt existing Playwright tests to new architecture
-- **Performance**: Optimize rendering and state updates
-- **Polish**: UI improvements and accessibility
+- [ ] **Error Handling**: Comprehensive error states and fallback modes
+- [ ] **Testing**: Adapt existing Playwright tests to new architecture
+- [ ] **Performance**: Optimize rendering and state updates
+- [ ] **Polish**: UI improvements and accessibility
 
 ## 🎯 Key Features to Preserve
 
 ### **Chat Features:**
-- Generic AI chat interface
-- Message history and session management
-- Loading states and error handling
-- Auto-scroll and input handling
+- [ ] Generic AI chat interface
+- [ ] Message history and session management
+- [ ] Loading states and error handling
+- [ ] Auto-scroll and input handling
 
 ### **MCP Integration:**
-- Multiple server support
-- Connection status monitoring
-- Fallback mode when servers fail
-- Dynamic server add/remove
-- Session initialization and management
-- Tool integration (background)
+- [ ] Multiple server support
+- [ ] Connection status monitoring
+- [ ] Fallback mode when servers fail
+- [ ] Dynamic server add/remove
+- [ ] Session initialization and management
+- [ ] Tool integration (background)
 
 ### **Configuration:**
-- Dedicated configuration page
-- Server URL management
-- Connection testing
-- Status dashboard
-- Settings persistence
+- [ ] Dedicated configuration page
+- [ ] Server URL management
+- [ ] Connection testing
+- [ ] Status dashboard
+- [ ] Settings persistence
 
 ## 📊 Success Metrics
-- All existing E2E tests pass
-- Feature parity with current implementation
-- Improved developer experience with TypeScript
-- Maintainable component architecture
-- Responsive design across devices
+- [ ] All existing E2E tests pass
+- [ ] Feature parity with current implementation
+- [ ] Improved developer experience with TypeScript
+- [ ] Maintainable component architecture
+- [ ] Responsive design across devices
+
+---
+
+## 🚀 Next Implementation Step: Phase 2 - Core Chat Interface
+
+### **Priority: Main Chat Page Implementation**
+
+**Goal**: Create the core chat interface that replicates the current `chat.html` functionality using React components.
+
+### **Implementation Plan:**
+
+#### **1. Type Definitions** (30 min) ✅ COMPLETED
+- ✅ Create `types/chat.ts` with message interfaces
+- ✅ Create `types/mcp.ts` with MCP server interfaces  
+- ✅ Create `types/api.ts` with API response interfaces
+
+#### **2. State Management Setup** (45 min) ✅ COMPLETED
+- ✅ Install Zustand: `npm install zustand`
+- ✅ Create `lib/stores/chatStore.ts` for message state
+- [ ] Create `lib/stores/mcpStore.ts` for MCP server state
+- [ ] Create `lib/stores/configStore.ts` for app configuration
+
+#### **3. API Utilities** (30 min) ✅ COMPLETED
+- ✅ Create `lib/utils/api.ts` with fetch wrappers
+- [ ] Create `lib/utils/mcp.ts` with MCP-specific API calls
+- [ ] Create `lib/utils/storage.ts` for localStorage management
+
+#### **4. Core Chat Components** (2 hours) ✅ COMPLETED
+- ✅ Create `components/chat/ChatInterface.tsx` - Main container
+- ✅ Create `components/chat/MessageBubble.tsx` - Individual messages
+- ✅ Create `components/chat/ChatInput.tsx` - Input handling
+
+#### **5. Main Page Implementation** (1 hour) ✅ COMPLETED
+- ✅ Replace `src/app/page.tsx` with chat interface
+- ✅ Integrate all chat components
+- ✅ Connect to state management
+- ✅ Test basic message sending/receiving
+
+#### **6. MCP Integration** (1.5 hours)
+- [ ] Create `components/mcp/StatusIndicator.tsx`
+- [ ] Create `components/mcp/ServerList.tsx`
+- [ ] Integrate MCP state management
+- [ ] Connect to existing backend endpoints
+
+### **Expected Outcome:**
+- Functional chat interface that matches current `chat.html` behavior
+- Type-safe implementation with proper state management
+- MCP server status monitoring
+- Ready for configuration page implementation
+
+### **Files to Create/Modify:**
+- `types/` directory with all type definitions
+- `lib/stores/` directory with Zustand stores
+- `lib/utils/` directory with utility functions
+- `components/chat/` directory with chat components
+- `components/mcp/` directory with MCP components
+- Update `src/app/page.tsx` with chat interface
+
+### **Testing Strategy:**
+- Manual testing of chat functionality
+- Verify MCP server connection status
+- Test message sending/receiving
+- Ensure responsive design works
+
+**Ready to proceed with this implementation plan?**
