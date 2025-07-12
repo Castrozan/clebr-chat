@@ -6,7 +6,7 @@ import type {
   ConnectionStatus,
 } from "../../types/mcp";
 import { ApiService } from "../services/api";
-import { StorageService, type StoredMcpServer } from "../utils/storage";
+import { StorageService } from "../utils/storage";
 
 export const useMcpStore = create<McpState & McpActions>((set, get) => ({
   // State

@@ -29,7 +29,7 @@ export function ServerList({
     }
   };
 
-  const getStatusBadge = (status: string, error?: string) => {
+  const getStatusBadge = (status: string) => {
     const config = {
       connected: { variant: "default" as const, className: "bg-green-500" },
       disconnected: {
@@ -89,7 +89,7 @@ export function ServerList({
                   onChange={(e) => onUpdateServerUrl(index, e.target.value)}
                   className="flex-1"
                 />
-                {getStatusBadge(server.status, server.error)}
+                {getStatusBadge(server.status)}
                 <Button
                   variant="outline"
                   size="sm"
