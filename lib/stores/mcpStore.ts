@@ -6,10 +6,18 @@ import type {
   ConnectionStatus,
 } from "../../types/mcp";
 import { ApiService } from "../services/api";
+import { StorageService, type StoredMcpServer } from "../utils/storage";
 
 export const useMcpStore = create<McpState & McpActions>((set, get) => ({
   // State
-  servers: [],
+  servers: StorageService.getMcpServers().map((stored) => ({
+    url: stored.url,
+    status: stored.status,
+    error: stored.error,
+    lastConnected: stored.lastConnected
+      ? new Date(stored.lastConnected)
+      : undefined,
+  })),
   sessionData: null,
   connectionStatus: "disconnected",
   statusText: "Not connected",
@@ -23,23 +31,50 @@ export const useMcpStore = create<McpState & McpActions>((set, get) => ({
       status: "disconnected",
     };
 
-    set((state) => ({
-      servers: [...state.servers, newServer],
-    }));
+    set((state) => {
+      const newServers = [...state.servers, newServer];
+      StorageService.saveMcpServers(
+        newServers.map((server) => ({
+          url: server.url,
+          status: server.status,
+          error: server.error,
+          lastConnected: server.lastConnected?.toISOString(),
+        }))
+      );
+      return { servers: newServers };
+    });
   },
 
   removeServer: (index: number) => {
-    set((state) => ({
-      servers: state.servers.filter((_, i) => i !== index),
-    }));
+    set((state) => {
+      const newServers = state.servers.filter((_, i) => i !== index);
+      StorageService.saveMcpServers(
+        newServers.map((server) => ({
+          url: server.url,
+          status: server.status,
+          error: server.error,
+          lastConnected: server.lastConnected?.toISOString(),
+        }))
+      );
+      return { servers: newServers };
+    });
   },
 
   updateServerUrl: (index: number, url: string) => {
-    set((state) => ({
-      servers: state.servers.map((server, i) =>
+    set((state) => {
+      const newServers = state.servers.map((server, i) =>
         i === index ? { ...server, url } : server
-      ),
-    }));
+      );
+      StorageService.saveMcpServers(
+        newServers.map((server) => ({
+          url: server.url,
+          status: server.status,
+          error: server.error,
+          lastConnected: server.lastConnected?.toISOString(),
+        }))
+      );
+      return { servers: newServers };
+    });
   },
 
   updateServerStatus: (

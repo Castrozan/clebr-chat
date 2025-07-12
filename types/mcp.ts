@@ -1,7 +1,7 @@
 // MCP Server types
 export interface McpServer {
   url: string;
-  status: "connected" | "disconnected" | "error";
+  status: "connected" | "disconnected" | "error" | "connecting";
   error?: string;
   lastConnected?: Date;
 }

@@ -21,6 +21,13 @@ export default function ConfigPage() {
     initializeMcp,
   } = useMcpStore();
 
+  // Add default server if none exist
+  useEffect(() => {
+    if (servers.length === 0) {
+      addServer("http://localhost:3001/mcp");
+    }
+  }, [servers.length, addServer]);
+
   const handleInitialize = async () => {
     const serverUrls = servers.map((server) => server.url);
     await initializeMcp(serverUrls);

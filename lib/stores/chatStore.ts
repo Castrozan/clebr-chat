@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import type { ChatStore, Message } from "../../types/chat";
 import { ApiService } from "../services/api";
+import { useMcpStore } from "./mcpStore";
 
 export const useChatStore = create<ChatStore>((set, get) => ({
   // State
@@ -55,10 +56,14 @@ export const useChatStore = create<ChatStore>((set, get) => ({
     setError(null);
 
     try {
+      // Get session ID from MCP store
+      const mcpStore = useMcpStore.getState();
+      const sessionId = mcpStore.sessionData?.sessionId || "default-session";
+
       // Send message to backend
       const response = await ApiService.sendChatMessage({
         message: content,
-        sessionId: "default-session", // TODO: Get from MCP session
+        sessionId,
       });
 
       if (response.error) {
