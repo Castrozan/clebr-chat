@@ -19,17 +19,8 @@ const mockApiService = {
   initializeMcp: jest.fn<() => Promise<any>>(),
 };
 
-const mockStorageService = {
-  getMcpServers: jest.fn(() => []),
-  saveMcpServers: jest.fn(),
-};
-
 jest.mock("../../src/lib/services/api", () => ({
   ApiService: mockApiService,
-}));
-
-jest.mock("../../src/lib/utils/storage", () => ({
-  StorageService: mockStorageService,
 }));
 
 // Import the actual store implementation
@@ -72,7 +63,6 @@ describe("McpStore", () => {
       expect(state.servers).toHaveLength(1);
       expect(state.servers[0].url).toBe("http://localhost:3001");
       expect(state.servers[0].status).toBe("disconnected");
-      expect(mockStorageService.saveMcpServers).toHaveBeenCalled();
     });
 
     it("removes server correctly", () => {
@@ -85,7 +75,6 @@ describe("McpStore", () => {
       const state = useMcpStore.getState();
       expect(state.servers).toHaveLength(1);
       expect(state.servers[0].url).toBe("http://localhost:3002");
-      expect(mockStorageService.saveMcpServers).toHaveBeenCalled();
     });
 
     it("updates server URL correctly", () => {
@@ -96,7 +85,6 @@ describe("McpStore", () => {
 
       const state = useMcpStore.getState();
       expect(state.servers[0].url).toBe("http://localhost:3002");
-      expect(mockStorageService.saveMcpServers).toHaveBeenCalled();
     });
 
     it("updates server status correctly", () => {

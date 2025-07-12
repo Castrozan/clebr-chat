@@ -97,7 +97,6 @@ export default function ConfigPage() {
               <div className="text-sm text-muted-foreground">
                 <p>Configured servers: {servers.length}</p>
                 <p>Status: {connectionStatus}</p>
-                <p>Last update: {new Date().toLocaleString()}</p>
               </div>
             </CardContent>
           </Card>
