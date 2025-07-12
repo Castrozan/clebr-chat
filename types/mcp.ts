@@ -46,12 +46,17 @@ export interface McpActions {
   addServer: (url: string) => void;
   removeServer: (index: number) => void;
   updateServerUrl: (index: number, url: string) => void;
+  updateServerStatus: (
+    url: string,
+    status: McpServer["status"],
+    error?: string
+  ) => void;
   setConnectionStatus: (status: ConnectionStatus, text?: string) => void;
   setSessionData: (data: McpSessionData | null) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
-  initializeSession: () => Promise<void>;
-  reconnect: () => Promise<void>;
+  initializeMcp: (serverUrls: string[]) => Promise<void>;
+  testServerConnection: (url: string) => Promise<boolean>;
 }
 
 // Combined MCP store type
