@@ -61,6 +61,8 @@ export function ServerList({
         {/* Add new server */}
         <div className="flex gap-2">
           <Input
+            id="new-server-url"
+            name="new-server-url"
             value={newServerUrl}
             onChange={(e) => setNewServerUrl(e.target.value)}
             onKeyPress={handleKeyPress}
@@ -85,6 +87,8 @@ export function ServerList({
                 className="flex items-center gap-2 p-2 border rounded"
               >
                 <Input
+                  id={`server-url-${index}`}
+                  name={`server-url-${index}`}
                   value={server.url}
                   onChange={(e) => onUpdateServerUrl(index, e.target.value)}
                   className="flex-1"
